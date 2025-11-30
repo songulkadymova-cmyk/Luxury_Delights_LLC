@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Luxury Delights LLC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Luxury Delights LLC – custom cakes, cookies, chocolate-covered strawberries, pies, cheesecakes, Dubai chocolates, dessert cups, and custom bouquets."
+  />
+
+  <style>
+    :root {
+      --beige: #f5e9dd;
+      --beige-dark: #e4d3c2;
+      --brown: #4b2b1b;          /* chocolate brown */
+      --brown-soft: #6a3b24;
+      --white: #ffffff;
+      --accent: #c9a27a;         /* warm caramel accent */
+      --text: #2c1a12;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: var(--beige);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 233, 221, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--beige-dark);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid var(--brown);
+      background: var(--white);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-text span:first-child {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--brown-soft);
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.75rem;
+      color: #7b5a41;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+    }
+
+    section {
+      padding: 3rem 0 0;
+    }
+
+    .section-heading {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #806452;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      padding-top: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: var(--beige-dark);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brown-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      margin-bottom: 0.75rem;
+      color: var(--brown);
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      margin-bottom: 1.5rem;
+      color: #5b4333;
+    }
+
+    .hero-highlight {
+      font-weight: 600;
+      color: var(--brown-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      background: none;
+    }
+
+    .btn-primary {
+      background: var(--brown);
+      color: var(--white);
+      border-color: var(--brown);
+    }
+
+    .btn-primary:hover {
+      background: var(--brown-soft);
+      border-color: var(--brown-soft);
+    }
+
+    .btn-outline {
+      color: var(--brown-soft);
+      border-color: var(--brown-soft);
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-outline:hover {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: #7c5c47;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #f0ded0);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0 12px 35px rgba(75, 43, 27, 0.16);
+      border: 1px solid rgba(107, 80, 61, 0.18);
+    }
+
+    .hero-photo {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.8rem;
+      aspect-ratio: 4 / 3;
+      background: #e8d5c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #7b5a41;
+    }
+
+    .hero-photo span {
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .hero-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #7a5c44;
+    }
+
+    .hero-caption strong {
+      font-weight: 600;
+    }
+
+    .hero-tagline {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      color: #9a7454;
+    }
+
+    /* About */
+
+    .about-content {
+      background: var(--white);
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      border: 1px solid var(--beige-dark);
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.75rem;
+    }
+
+    .about-pill {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brown-soft);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-main p {
+      font-size: 0.94rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .about-main p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-grid {
+      font-size: 0.85rem;
+      color: #7d5d45;
+    }
+
+    .about-grid h4 {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      color: var(--brown-soft);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill-list span {
+      background: var(--beige-dark);
+      border-radius: 999px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    /* Sweets / Menu */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 1.1rem;
+      padding: 1rem;
+      border: 1px solid var(--beige-dark);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      color: var(--brown-soft);
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card ul li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Pricing */
+
+    .pricing-note {
+      font-size: 0.85rem;
+      color: #7a5c46;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-item {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--beige-dark);
+      font-size: 0.9rem;
+    }
+
+    .pricing-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      color: var(--brown-soft);
+    }
+
+    .pricing-item p {
+      font-size: 0.86rem;
+      color: #7a5c46;
+    }
+
+    .how-order {
+      font-size: 0.88rem;
+      margin-top: 0.5rem;
+    }
+
+    .how-order ol {
+      margin-left: 1.2rem;
+      margin-top: 0.35rem;
+    }
+
+    /* Gallery */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 0.5rem;
+      border: 1px solid var(--beige-dark);
+      font-size: 0.8rem;
+      color: #7c5c47;
+    }
+
+    .gallery-item img {
+      border-radius: 0.8rem;
+      margin-bottom: 0.4rem;
+      background: #e8d5c4;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    /* Videos */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .video-card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 0.75rem;
+      border: 1px solid var(--beige-dark);
+      font-size: 0.85rem;
+      color: #7a5c46;
+    }
+
+    .video-placeholder {
+      border-radius: 0.8rem;
+      background: #e8d5c4;
+      aspect-ratio: 9 / 16;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.4rem;
+      text-align: center;
+      padding: 0.4rem;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      border: 1px solid var(--beige-dark);
+      font-size: 0.9rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--brown-soft);
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 0.25rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+    }
+
+    .contact-list span.label {
+      font-weight: 600;
+      color: var(--brown-soft);
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 2.5rem;
+      font-size: 0.8rem;
+      color: #7c5c46;
+      text-align: center;
+    }
+
+    footer span {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .about-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-left {
+        justify-content: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Nav -->
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo">
+          <!-- Place your logo file as logo.png in the same folder -->
+          <img src="logo.png" alt="Luxury Delights LLC logo" />
+        </div>
+        <div class="brand-text">
+          <span>Luxury Delights LLC</span>
+          <span>Custom sweets & floral bouquets</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#sweets">Our Sweets</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div>
+        <div class="hero-tag">Established 2021 · Family-run</div>
+        <h1>Luxury Delights LLC</h1>
+        <p>
+          A custom sweets studio crafting <span class="hero-highlight">elegant desserts and floral creations</span>
+          for engagements, weddings, holidays, and everyday celebrations. From cakes and cookies to Dubai-style
+          chocolates and desert cups, we bring your ideas to life with detail and care.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#gallery" class="btn-primary">View Our Work</a>
+          <a href="#contact" class="btn-outline">Place an Inquiry</a>
+        </div>
+        <p class="hero-note">
+          Serving <strong>St. Louis, MO</strong> · <strong>Louisville, KY</strong> · <strong>Charlotte, NC</strong>.
+        </p>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-photo">
+          <!-- Replace this with a real image of your favorite order -->
+          <span>Add a photo here of an engagement set, Dubai box, or dessert table.</span>
+        </div>
+        <div class="hero-caption">
+          <div>
+            <strong>Signature Custom Set</strong>
+            <div class="hero-tagline">Cookies · Chocolates · Strawberries · Bouquets</div>
+          </div>
+          <div>Handcrafted with love since 2021</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-heading">About Luxury Delights LLC</h2>
+      <p class="section-subtitle">
+        Luxury Delights LLC – established in 2021 – is a small business built on family, creativity, and attention to detail.
+      </p>
+
+      <div class="about-content">
+        <div class="about-main">
+          <div class="about-pill">Our Story</div>
+          <p>
+            Luxury Delights LLC began as a home-based passion and quickly grew into a custom dessert and floral brand.
+            We specialize in sweets that are as beautiful as they are delicious, focusing on clean presentation, cohesive
+            color palettes, and thoughtful packaging.
+          </p>
+          <p>
+            Every order is fully customized — whether it’s an engagement, bridal shower, baby shower, corporate event,
+            or a simple “just because.” We work closely with our clients to match their theme, colors, and atmosphere,
+            and we take pride in professional communication, invoicing, and on-time pickups and deliveries.
+          </p>
+        </div>
+        <div class="about-grid">
+          <h4>What we’re known for</h4>
+          <div class="pill-list">
+            <span>Custom cookie sets</span>
+            <span>Dubai-style chocolates</span>
+            <span>Elegant dessert tables</span>
+            <span>Flower & sweets bouquets</span>
+            <span>Clean, luxury packaging</span>
+          </div>
+
+          <h4>Services we provide</h4>
+          <p>
+            Fully custom sweets, coordinated color schemes, corporate gifting, special occasion orders, and
+            multi-location pickups in St. Louis, Louisville, and Charlotte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sweets / Menu -->
+    <section id="sweets">
+      <h2 class="section-heading">Our Sweets & Creations</h2>
+      <p class="section-subtitle">
+        We offer a wide range of sweets and desserts, and most items can be customized to fit your theme, colors, and event.
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>Cakes & Cheesecakes</h3>
+          <p>
+            Custom flavors, designs, and sizes created to match your occasion.
+          </p>
+          <ul>
+            <li>Classic layered cakes</li>
+            <li>Mini cheesecakes</li>
+            <li>Full-size cheesecakes</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Cookies & Cake Pops</h3>
+          <p>
+            Hand-decorated sweets perfect for engagements, parties, and gifting.
+          </p>
+          <ul>
+            <li>Custom sugar cookies</li>
+            <li>Themed & monogrammed sets</li>
+            <li>Cake pops and cake balls</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Chocolates & Dessert Cups</h3>
+          <p>
+            Elegant treats with luxury-style presentation.
+          </p>
+          <ul>
+            <li>Dubai-style chocolates</li>
+            <li>Dessert shooters & cups</li>
+            <li>Assorted bite-size sweets</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Chocolate-Covered Strawberries</h3>
+          <p>
+            Dipped, drizzled, and decorated to fit your color palette.
+          </p>
+          <ul>
+            <li>Classic sets</li>
+            <li>Themed & lettered designs</li>
+            <li>Gift boxes and bouquet-style arrangements</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Pies & Seasonal Desserts</h3>
+          <p>
+            Comfort-style desserts that still feel elevated and gift-ready.
+          </p>
+          <ul>
+            <li>Mini and full-size pies</li>
+            <li>Holiday-inspired sweets</li>
+            <li>Custom seasonal menus</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Custom Flower Bouquets</h3>
+          <p>
+            Fresh flower arrangements and sweets & blooms combinations.
+          </p>
+          <ul>
+            <li>Flower-only bouquets</li>
+            <li>Sweets & roses gift boxes</li>
+            <li>Special occasion arrangements</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing">
+  <h2 class="section-heading">Pricing & Ordering</h2>
+  <p class="section-subtitle">
+    Because every order is custom, final pricing depends on design, quantity, and complexity. Below are our current starting prices for the most popular items.
+  </p>
+
+  <div class="pricing-grid">
+    <div class="pricing-item">
+      <h3>Custom Cookies</h3>
+      <p>
+        <strong>$60 per dozen</strong> (minimum order: one dozen) or <strong>$5 each</strong> for additional cookies.
+        Pricing may increase for highly detailed artwork, metallics, or character designs.
+      </p>
+    </div>
+
+    <div class="pricing-item">
+      <h3>Chocolate-Covered Strawberries</h3>
+      <p>
+        <strong>$35 per dozen</strong> for classic sets. Custom colors, lettering, or luxury designs may be quoted slightly higher depending on detail.
+      </p>
+    </div>
+
+    <div class="pricing-item">
+      <h3>Cake Pops & Cakesicles</h3>
+      <p>
+        Cake pops are <strong>$3 each</strong> (<strong>$36 per dozen</strong>).
+        Cakesicles are <strong>$4 each</strong>. Themed designs, characters, or intricate details may affect final pricing.
+      </p>
+    </div>
+
+    <div class="pricing-item">
+      <h3>Dubai Chocolate Bars</h3>
+      <p>
+        Small: <strong>$10</strong> · Medium: <strong>$20</strong> · Large: <strong>$30</strong> · Jumbo: <strong>$40</strong>.
+        Perfect for gifting, dessert tables, or paired with flowers in a custom box.
+      </p>
+    </div>
+
+    <div class="pricing-item">
+      <h3>Cakes, Cheesecakes & Pies</h3>
+      <p>
+        Cakes, mini and full-size cheesecakes, and pies are <strong>priced per design</strong> based on size, flavors, and decoration.
+        Share your vision and we’ll provide a custom quote.
+      </p>
+    </div>
+
+    <div class="pricing-item">
+      <h3>Dessert Cups & Bouquets</h3>
+      <p>
+        Dessert cups/shooters and custom flower or sweets & flowers bouquets are also <strong>custom quoted</strong> according to quantity, style, and arrangement.
+      </p>
+    </div>
+  </div>
+
+  <div class="how-order">
+    <strong>How ordering works:</strong>
+    <ol>
+      <li>Contact us via Instagram, email, or text with your event date and location.</li>
+      <li>Share your theme, colors, guest count, and any inspiration photos.</li>
+      <li>We confirm availability and send a custom quote based on your order.</li>
+      <li>A deposit may be required to secure your date for larger or custom orders.</li>
+      <li>Pickup (and limited delivery) details are confirmed the week of your event.</li>
+    </ol>
+  </div>
+</section>
+
+
+      <div class="how-order">
+        <strong>How ordering works:</strong>
+        <ol>
+          <li>Fill out the inquiry form or contact us via Instagram, email, or text.</li>
+          <li>Share your event date, theme, colors, and inspiration photos.</li>
+          <li>We confirm availability, design details, and provide a quote.</li>
+          <li>A deposit may be required to secure your date.</li>
+          <li>Final pickup or delivery details are confirmed the week of your event.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+      <h2 class="section-heading">Photo Gallery</h2>
+      <p class="section-subtitle">
+        A look at some of the sweets and arrangements we’ve created. Replace the placeholders below with your own photos.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="#" alt="Engagement cookie set" />
+          <div>Engagement & bridal cookie sets</div>
+        </div>
+        <div class="gallery-item">
+          <img src="#" alt="Dubai-style chocolates" />
+          <div>Dubai-style chocolate boxes</div>
+        </div>
+        <div class="gallery-item">
+          <img src="#" alt="Chocolate-covered strawberries" />
+          <div>Chocolate-covered strawberries in custom colors</div>
+        </div>
+        <div class="gallery-item">
+          <img src="#" alt="Dessert cups" />
+          <div>Dessert shooters and mini cups for events</div>
+        </div>
+        <div class="gallery-item">
+          <img src="#" alt="Custom bouquet" />
+          <div>Custom flower & sweets bouquets</div>
+        </div>
+        <div class="gallery-item">
+          <img src="#" alt="Holiday pies and sweets" />
+          <div>Seasonal pies and holiday dessert tables</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Videos -->
+    <section id="videos">
+      <h2 class="section-heading">Videos & Reels</h2>
+      <p class="section-subtitle">
+        We love sharing behind-the-scenes clips, box reveals, and packaging videos. You can embed your Instagram or TikTok
+        reels here.
+      </p>
+
+      <div class="video-grid">
+        <div class="video-card">
+          <div class="video-placeholder">
+            Replace this with an embedded Instagram reel or TikTok link.
+          </div>
+          <div>Box reveal / packaging video</div>
+        </div>
+        <div class="video-card">
+          <div class="video-placeholder">
+            Another behind-the-scenes decorating or dipping video.
+          </div>
+          <div>Decorating & design process</div>
+        </div>
+        <div class="video-card">
+          <div class="video-placeholder">
+            Use an iframe embed code from Instagram, TikTok, or YouTube here.
+          </div>
+          <div>Before & after / table setup video</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-heading">Contact & Locations</h2>
+      <p class="section-subtitle">
+        Ready to place an order or ask a question? Reach out using any of the options below.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Get in touch</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="label">Instagram:</span>
+              <!-- Replace with your actual Instagram handle -->
+              <a href="#" target="_blank" rel="noopener noreferrer">@luxurydelightsllc</a>
+            </li>
+            <li>
+              <span class="label">Email:</span>
+              <!-- Replace with your business email if different -->
+              <a href="mailto:songul.kadymova@gmail.com">songul.kadymova@gmail.com</a>
+            </li>
+            <li>
+              <span class="label">Phone:</span>
+              <!-- Replace with your business number -->
+              <a href="tel:XXX-XXX-XXXX">XXX-XXX-XXXX</a>
+            </li>
+          </ul>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+            Please include your event date, location, and an idea of what you’re looking for when you reach out.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Where we serve</h3>
+          <p>
+            Luxury Delights LLC is available for custom orders in:
+          </p>
+          <ul class="contact-list" style="margin-top: 0.5rem;">
+            <li>• St. Louis, Missouri</li>
+            <li>• Louisville, Kentucky</li>
+            <li>• Charlotte, North Carolina</li>
+          </ul>
+          <p style="margin-top: 0.75rem; font-size: 0.85rem;">
+            Pickup is arranged within each city, and limited delivery may be available depending on schedule and distance.
+            Please ask when inquiring.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Luxury Delights LLC. All rights reserved.</span>
+    <span>Handcrafted sweets & bouquets · Established 2021</span>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
